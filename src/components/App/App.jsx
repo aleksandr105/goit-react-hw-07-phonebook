@@ -27,8 +27,9 @@ export const App = () => {
     if (!contactСheck) {
       const contact = {
         name: name,
-        phone: number,
+        phone: number.match(/\d{3}(?=\d{2,3})|\d+/g).join('-'),
       };
+
       addcontact(contact);
       resetForm();
     } else {

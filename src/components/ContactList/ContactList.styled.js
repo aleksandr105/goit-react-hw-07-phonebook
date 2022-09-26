@@ -30,7 +30,7 @@ export const Item = styled.li`
 `;
 
 export const ButtonDelete = styled.button`
-  margin-left: 20px;
+  margin-left: 10px;
   padding: 2px;
   background-color: #50ceff;
   border-radius: 5px;
