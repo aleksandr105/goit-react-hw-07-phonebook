@@ -1,6 +1,12 @@
 import PropTypes from 'prop-types';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
-import { Label, ButtonAdd } from './ContactForm.styled';
+import { Formik } from 'formik';
+import {
+  Label,
+  ButtonAdd,
+  FormCreateContact,
+  Inpup,
+  InputMessage,
+} from './ContactForm.styled';
 import * as yup from 'yup';
 
 let initialValues = {
@@ -25,47 +31,19 @@ export const ContactForm = ({ handleSubmit }) => {
       onSubmit={handleSubmit}
       validationSchema={schema}
     >
-      <Form
-        name="phonebook"
-        autoComplete="off"
-        style={{ border: '2px solid black', padding: '30px' }}
-      >
+      <FormCreateContact name="phonebook" autoComplete="off">
         <Label htmlFor="">
           Name
-          <Field
-            placeholder="Rosie Simpson"
-            type="text"
-            name="name"
-            style={{
-              display: 'block',
-              width: '70%',
-              height: '25px',
-              marginBottom: '15px',
-              marginTop: '5px',
-              padding: '5px',
-            }}
-          />
-          <ErrorMessage name="name" component="p" />
+          <Inpup placeholder="Rosie Simpson" type="text" name="name" />
+          <InputMessage name="name" component="p" />
         </Label>
         <Label htmlFor="">
           Number
-          <Field
-            placeholder="459-12-56"
-            type="tel"
-            name="number"
-            style={{
-              display: 'block',
-              width: '70%',
-              height: '25px',
-              marginBottom: '15px',
-              marginTop: '5px',
-              padding: '5px',
-            }}
-          />
-          <ErrorMessage name="number" component="p" />
+          <Inpup placeholder="459-12-56" type="tel" name="number" />
+          <InputMessage name="number" component="p" />
         </Label>
         <ButtonAdd type="submit">Add contact</ButtonAdd>
-      </Form>
+      </FormCreateContact>
     </Formik>
   );
 };

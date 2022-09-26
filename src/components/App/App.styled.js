@@ -1,9 +1,9 @@
 import styled from '@emotion/styled';
 
 export const Container = styled.div`
-  padding: 50px;
+  padding: 15px;
   margin: 0 auto;
-  max-width: 500px;
+  max-width: 420px;
 `;
 
 export const TitleLIstContacts = styled.h2`
