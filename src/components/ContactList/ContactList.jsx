@@ -37,7 +37,7 @@ export const ContactList = () => {
             <Number href={`tel:${arrPhone}`}>{phone}</Number>
             <ButtonDelete
               type="button"
-              disabled={isLoading}
+              disabled={isLoading === id}
               onClick={() => deleteContact(id)}
             >
               Delete

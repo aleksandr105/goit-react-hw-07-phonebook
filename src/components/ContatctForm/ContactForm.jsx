@@ -24,7 +24,7 @@ let schema = yup.object().shape({
     .required('Mandatory field'),
 });
 
-export const ContactForm = ({ handleSubmit }) => {
+export const ContactForm = ({ handleSubmit, isLoading }) => {
   return (
     <Formik
       initialValues={initialValues}
@@ -42,7 +42,9 @@ export const ContactForm = ({ handleSubmit }) => {
           <Inpup placeholder="459-12-56" type="tel" name="number" />
           <InputMessage name="number" component="p" />
         </Label>
-        <ButtonAdd type="submit">Add contact</ButtonAdd>
+        <ButtonAdd type="submit" disabled={isLoading}>
+          {isLoading ? '...Sending' : 'Add contact'}
+        </ButtonAdd>
       </FormCreateContact>
     </Formik>
   );
@@ -50,4 +52,5 @@ export const ContactForm = ({ handleSubmit }) => {
 
 ContactForm.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
+  isLoading: PropTypes.bool,
 };
