@@ -12,6 +12,17 @@ export const ItemText = styled.span`
   margin-left: 3px;
 `;
 
+export const Number = styled.a`
+  margin-left: auto;
+  color: blue;
+  text-decoration: none;
+  transition-duration: 130ms;
+  :hover {
+    transform: scale(1.08);
+    color: tomato;
+  }
+`;
+
 export const Item = styled.li`
   color: tomato;
   display: flex;
@@ -19,7 +30,7 @@ export const Item = styled.li`
 `;
 
 export const ButtonDelete = styled.button`
-  margin-left: auto;
+  margin-left: 20px;
   padding: 2px;
   background-color: #50ceff;
   border-radius: 5px;
