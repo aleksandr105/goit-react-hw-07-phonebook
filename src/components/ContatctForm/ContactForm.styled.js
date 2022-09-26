@@ -19,6 +19,9 @@ export const Inpup = styled(Field)`
   margin-bottom: 15px;
   margin-top: 5px;
   padding: 5px;
+  @media (max-width: 400px) {
+    width: 90%;
+  }
 `;
 
 export const Label = styled.label`
