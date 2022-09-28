@@ -7,6 +7,7 @@ import {
   Inpup,
   InputMessage,
 } from './ContactForm.styled';
+import HashLoader from 'react-spinners/HashLoader';
 import * as yup from 'yup';
 
 let initialValues = {
@@ -43,7 +44,8 @@ export const ContactForm = ({ handleSubmit, isLoading }) => {
           <InputMessage name="number" component="p" />
         </Label>
         <ButtonAdd type="submit" disabled={isLoading}>
-          {isLoading ? 'Sending...' : 'Add contact'}
+          <HashLoader loading={isLoading} color={'red'} size={11} />
+          {isLoading ? '' : 'Add contact'}
         </ButtonAdd>
       </FormCreateContact>
     </Formik>

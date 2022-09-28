@@ -3,12 +3,15 @@ import styled from '@emotion/styled';
 export const ButtonDelete = styled.button`
   margin-left: 10px;
   padding: 2px;
-  background-color: #50ceff;
+  background-color: ${p => (p.disabled ? 'transparent' : '#50ceff')};
   border-radius: 5px;
   border: none;
   width: 50px;
   font-weight: 600;
   transition-duration: 130ms;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   :hover {
     color: red;
     transform: scale(1.1);

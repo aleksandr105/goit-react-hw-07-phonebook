@@ -16,10 +16,11 @@ import {
 import { useDispatch } from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ClipLoader from 'react-spinners/ClipLoader';
 
 export const App = () => {
   const dispatch = useDispatch();
-  const { data } = useGetContactsQuery();
+  const { data, isFetching } = useGetContactsQuery();
   const [addcontact, { isLoading, isSuccess }] = useAddContactMutation();
 
   const handleSubmit = ({ name, number }, { resetForm }) => {
@@ -79,7 +80,13 @@ export const App = () => {
             <ContactList />
           </>
         ) : (
-          <NoContactMessage>No contact yet</NoContactMessage>
+          <NoContactMessage>
+            {isFetching ? (
+              <ClipLoader color={'#d63636'} loading={isFetching} size={100} />
+            ) : (
+              'No contact yet'
+            )}
+          </NoContactMessage>
         )}
       </Container>
     </section>

@@ -4,7 +4,7 @@ import { Item, ItemText, Number, ButtonDelete } from './ContactItem.styled';
 import { useDeleteContactMutation } from '../../redux/contactsSlice';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import ClipLoader from 'react-spinners/ClipLoader';
+import HashLoader from 'react-spinners/HashLoader';
 
 export const ContactItem = ({ id, name, phone, index }) => {
   const [deleteContact, { isLoading, isSuccess }] = useDeleteContactMutation();
@@ -34,11 +34,8 @@ export const ContactItem = ({ id, name, phone, index }) => {
         disabled={isLoading}
         onClick={() => deleteContact(id)}
       >
-        {!isLoading ? (
-          'Delete'
-        ) : (
-          <ClipLoader loading={isLoading} color={'red'} size={12} />
-        )}
+        <HashLoader loading={isLoading} color={'red'} size={15} />
+        {!isLoading ? 'Delete' : ''}
       </ButtonDelete>
     </Item>
   );
