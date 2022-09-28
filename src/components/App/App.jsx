@@ -52,10 +52,6 @@ export const App = () => {
   };
 
   useEffect(() => {
-    if (!isSuccess) {
-      return;
-    }
-
     if (isSuccess) {
       toast.success('Contact successfully added', {
         position: 'top-center',

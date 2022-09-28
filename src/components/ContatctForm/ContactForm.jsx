@@ -43,7 +43,7 @@ export const ContactForm = ({ handleSubmit, isLoading }) => {
           <InputMessage name="number" component="p" />
         </Label>
         <ButtonAdd type="submit" disabled={isLoading}>
-          {isLoading ? '...Sending' : 'Add contact'}
+          {isLoading ? 'Sending...' : 'Add contact'}
         </ButtonAdd>
       </FormCreateContact>
     </Formik>

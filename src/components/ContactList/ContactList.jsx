@@ -1,19 +1,11 @@
-import {
-  List,
-  ButtonDelete,
-  Item,
-  ItemText,
-  Number,
-} from './ContactList.styled';
-import {
-  useDeleteContactMutation,
-  useGetContactsQuery,
-} from '../../redux/contactsSlice';
+import { List } from './ContactList.styled';
+import { useGetContactsQuery } from '../../redux/contactsSlice';
+import { ContactItem } from '../ContactItem/ContactItem';
 import { useSelector } from 'react-redux';
 
 export const ContactList = () => {
   const filter = useSelector(state => state.filter);
-  const [deleteContact, { isLoading }] = useDeleteContactMutation();
+
   const { data } = useGetContactsQuery();
 
   const showFiltered = () => {
@@ -28,23 +20,9 @@ export const ContactList = () => {
 
   return (
     <List>
-      {visibalFiltr.map(({ id, name, phone }, index) => {
-        const arrPhone = phone.replaceAll('-', '');
-
-        return (
-          <Item key={id}>
-            {index + 1}.<ItemText>{name}:</ItemText>
-            <Number href={`tel:${arrPhone}`}>{phone}</Number>
-            <ButtonDelete
-              type="button"
-              disabled={isLoading === id}
-              onClick={() => deleteContact(id)}
-            >
-              Delete
-            </ButtonDelete>
-          </Item>
-        );
-      })}
+      {visibalFiltr.map(({ id, name, phone }, index) => (
+        <ContactItem key={id} id={id} name={name} phone={phone} index={index} />
+      ))}
     </List>
   );
 };
