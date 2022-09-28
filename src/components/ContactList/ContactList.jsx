@@ -20,9 +20,19 @@ export const ContactList = () => {
 
   return (
     <List>
-      {visibalFiltr.map(({ id, name, phone }, index) => (
-        <ContactItem key={id} id={id} name={name} phone={phone} index={index} />
-      ))}
+      {visibalFiltr
+        .sort((firstName, secondName) =>
+          firstName.name.localeCompare(secondName.name)
+        )
+        .map(({ id, name, phone }, index) => (
+          <ContactItem
+            key={id}
+            id={id}
+            name={name}
+            phone={phone}
+            index={index}
+          />
+        ))}
     </List>
   );
 };
